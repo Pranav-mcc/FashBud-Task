@@ -1,0 +1,109 @@
+<div class="app-container">
+  <!-- Header Section -->
+ 
+    <div class="logo" style="background-color: rgba(203,53, 114, 1); padding: 6px; border-radius: 10%;display: inline-block;">
+      <Span>Fash</Span><br>
+      <Span>Bud</Span>
+    </div>
+    <header class="header">
+    <div class="welcome">
+      <span style="font-size: small;">Welcome</span><br>
+      <span style="font-weight: bold; font-size: xx-large;">Henry 👋</span>
+    </div>
+    <div class="profile">
+      <img src="https://tse2.mm.bing.net/th?id=OIP.Zvs5IHgOO5kip7A32UwZJgHaHa&pid=Api&P=0&h=180" style="height: 45px; " alt="Profile" class="profile-img" />
+    </div>
+  </header><br>
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <i class="fas fa-search"></i>
+    <input type="text" placeholder="      Search 1Million+ products here">
+  </div><br>
+
+  <!-- Categories Section -->
+  <div class="categories" >
+    <div class="category" *ngFor="let category of categories">
+      <img [src]="category.image" style="height: 40px;padding: 3px; border-radius: 10%;" [style.background-color]="category.background"  alt="{{ category.image }}" />
+      <p>{{ category.name }}</p>
+    </div>
+  </div>
+
+  <!-- Discover Offers -->
+  <section class="offers">
+    <h3>Discover Offers</h3>
+    <div class="offer-card">
+      <div class="offer-content">
+        <p class="offer-title">Grab 20+ Personalized Offers Now!</p>
+        <p class="offer-subtitle">From various brands</p>
+        <div class="brand-logos">
+          <img src="https://tse4.mm.bing.net/th?id=OIP.XLB3JyFYAYI5LYLJE3kOFAAAAA&pid=Api&P=0&h=180" style="height: 15px;" alt="Brand 1" />
+          <img src="https://tse3.mm.bing.net/th?id=OIP.1ZyazdCAA3U5ay2H8Yb34QHaHa&pid=Api&P=0&h=180" style="height: 15px;" alt="Brand 2" />
+          <img src="https://tse3.mm.bing.net/th?id=OIP.ebqCRFZ3_MuTT_zaAJzBBwHaDt&pid=Api&P=0&h=180" style="height: 15px;" alt="Brand 3" />
+          <span class="more-brands">+20 more</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress" style="width: 75%;"></div>
+        </div>
+        
+      </div>
+      <button class="grab-offer-btn">Grab Offers</button>
+    </div>
+  </section>
+
+  <!-- Popular Now Section -->
+  <section class="popular-now" (onclick)="gotoProduct()" style="cursor: pointer;">
+    <h3>Popular Now</h3>
+    <a href="/product" style="text-decoration: none;">
+    <div class="products" href="/product">
+      <div class="product-card" *ngFor="let product of popularProducts">
+        <img [src]="product.image" alt="{{ product.name }}" />
+        <p>{{ product.name }}</p>
+        <p>Starts from ₹{{ product.price }}</p>
+      </div>
+    </div>
+  </a>
+  </section>
+
+  <!-- Latest Arrivals Section -->
+  <section class="latest-arrivals" style="cursor: pointer;">
+    <h3>Latest Arrivals</h3>
+    <div class="products">
+      <div class="product-card" *ngFor="let product of latestArrivals">
+        <img [src]="product.image" alt="{{ product.name }}" />
+        <p>{{ product.name }}</p>
+        <p>Starts from ₹{{ product.price }}</p>
+      </div>
+    </div>
+  </section>
+
+ <!-- Recommended Section -->
+<section class="recommended">
+  <h3 class="section-title">
+    Recommended <span class="see-more">See more &gt;</span>
+  </h3>
+  <div class="recommendation-list">
+    <div class="recommendation-card" *ngFor="let item of recommendations">
+      <img [src]="item.image" alt="{{ item.name }}" class="recommendation-image" />
+      <div class="details">
+        <p class="name">{{ item.name }}</p>
+        <p class="price">₹{{ item.price }}</p>
+        <p class="original-price">
+          <s>₹{{ item.originalPrice }}</s>
+          <span class="discount">{{ item.discount }}% off</span>
+        </p>
+      </div>
+      <a href="#" class="view-link">View &gt;</a>
+    </div>
+  </div>
+</section>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <div class="nav-item" *ngFor="let nav of navItems">
+      <img [src]="nav.icon" alt="{{ nav.name }}" class="nav-icon" />
+      <p class="nav-label">{{ nav.name }}</p>
+    </div>
+  </nav>
+  
+</div>
